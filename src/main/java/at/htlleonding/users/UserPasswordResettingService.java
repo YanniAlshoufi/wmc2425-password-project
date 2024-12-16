@@ -23,7 +23,10 @@ public class UserPasswordResettingService {
    final SecureRandom random = new SecureRandom();
    final char[] ALLOWED_ONE_TIME_CODE_CHARS = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'M', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '2', '3', '4', '5', '6', '7', '8', '9', '-', 'a', 'b', 'c', 'd', 'e', 'f', 'g'};
    
-   public void sendOneTimeCode(User user) {
+   public boolean sendOneTimeCode(String email) {
+      Optional<User> optionalUser = usersRepository.find("User user where user.email = :email", email).firstResultOptional();
+      if (optionalUser.isEmpty()) return false;
+      User user = optionalUser.get();
       String resetCode = this.random
             .ints(20)
             .map(n -> n % this.ALLOWED_ONE_TIME_CODE_CHARS.length)
@@ -32,9 +35,13 @@ public class UserPasswordResettingService {
             .collect(Collectors.joining());
       log.info("Creating and sending one time reset code \"{}\" for user \"{}\"", resetCode, user.getEmail());
       this.oneTimeResetCodes.put(user, resetCode);
+      return true;
    }
    
-   public boolean trySetNewPw(User user, String oneTimeResetCode, String newPw) {
+   public boolean trySetNewPw(String email, String oneTimeResetCode, String newPw) {
+      Optional<User> optionalUser = usersRepository.find("User user where user.email = :email", email).firstResultOptional();
+      if (optionalUser.isEmpty()) return false;
+      User user = optionalUser.get();
       if (!this.oneTimeResetCodes.containsKey(user)) {
          return false;
       }

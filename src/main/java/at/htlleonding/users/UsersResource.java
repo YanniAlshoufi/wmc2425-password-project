@@ -41,6 +41,7 @@ public class UsersResource {
     @POST
     @Path("/forgot")
     public Response resetPassword(ResetPwDto resetPwDto) {
+        
         throw new RuntimeException("Not Implemented");
     }
     

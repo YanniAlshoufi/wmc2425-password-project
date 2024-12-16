@@ -1,3 +1,3 @@
 package at.htlleonding.users.dtos;
 
-public record SetNewPwDto(String oneTimeCode, String newPw) {}
+public record SetNewPwDto(String email, String oneTimeCode, String newPw) {}
