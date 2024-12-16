@@ -1,5 +1,6 @@
 package at.htlleonding.users;
 
+import at.htlleonding.users.dtos.ResetPwDto;
 import at.htlleonding.users.dtos.SetNewPwDto;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -39,7 +40,7 @@ public class UsersResource {
 
     @POST
     @Path("/forgot")
-    public Response resetPassword() {
+    public Response resetPassword(ResetPwDto resetPwDto) {
         throw new RuntimeException("Not Implemented");
     }
     
