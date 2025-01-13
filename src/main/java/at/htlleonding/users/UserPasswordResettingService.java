@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @ApplicationScoped
 public class UserPasswordResettingService {
-   @ConfigProperty(name = "QUARKUS_PASSWORDS_HASH_PEPPER")
+   @ConfigProperty(name = "WMC_QUARKUS_PASSWORDS_HASH_PEPPER")
    String pepper;
    @Inject
    UsersRepository usersRepository;

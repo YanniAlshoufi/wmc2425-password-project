@@ -18,7 +18,7 @@ public class UsersResource {
     public UsersResource(
             UserPasswordResettingService resettingService,
             UserSigningService signingService,
-            @ConfigProperty(name = "QUARKUS_PASSWORDS_HASH_PEPPER") String pepper
+            @ConfigProperty(name = "WMC_QUARKUS_PASSWORDS_HASH_PEPPER") String pepper
     ) {
         this.resettingService = resettingService;
         this.signingService = signingService;
