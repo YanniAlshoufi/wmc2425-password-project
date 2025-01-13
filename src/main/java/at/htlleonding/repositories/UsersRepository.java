@@ -1,4 +1,4 @@
-package at.htlleonding.users;
+package at.htlleonding.repositories;
 
 import at.htlleonding.models.User;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;

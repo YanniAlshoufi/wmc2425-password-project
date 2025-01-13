@@ -1,7 +1,9 @@
-package at.htlleonding.users;
+package at.htlleonding.resources;
 
-import at.htlleonding.users.dtos.ResetPwDto;
-import at.htlleonding.users.dtos.SetNewPwDto;
+import at.htlleonding.dtos.ResetPwDto;
+import at.htlleonding.dtos.SetNewPwDto;
+import at.htlleonding.services.UserPasswordResettingService;
+import at.htlleonding.services.UserSigningService;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
@@ -46,7 +48,7 @@ public class UsersResource {
     }
     
     @POST
-    @Path("/set-new-pw")
+    @Path("/set-new-password")
     public Response setNewPassword(SetNewPwDto setNewPwDto) {
         throw new RuntimeException("Not implemented");
     }

@@ -1,4 +1,4 @@
-package at.htlleonding.users.dtos;
+package at.htlleonding.dtos;
 
 public record ResetPwDto(String email) {
 }

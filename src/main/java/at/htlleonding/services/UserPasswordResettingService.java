@@ -1,7 +1,8 @@
-package at.htlleonding.users;
+package at.htlleonding.services;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import at.htlleonding.models.User;
+import at.htlleonding.repositories.UsersRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
