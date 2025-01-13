@@ -13,6 +13,6 @@ public class UserSigningService {
     }
 
     public Optional<String> login() {
-
+        throw new RuntimeException("Not Implemented");
     }
 }

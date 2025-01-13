@@ -50,6 +50,6 @@ public class UsersResource {
     @POST
     @Path("/set-new-password")
     public Response setNewPassword(SetNewPwDto setNewPwDto) {
-        throw new RuntimeException("Not implemented");
+        throw new RuntimeException("Not Implemented");
     }
 }
