@@ -18,6 +18,6 @@ public record SetNewPasswordReq(
 
         @NotNull
         @NotEmpty
-        @Size(min = 6)
+        @Size(min = 6, max = 50)
         String newPassword
 ) {}

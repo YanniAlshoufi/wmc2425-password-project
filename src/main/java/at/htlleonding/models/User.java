@@ -4,8 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Max;
 import lombok.*;
 
 import java.util.UUID;
@@ -26,12 +25,11 @@ public class User {
     @EqualsAndHashCode.Include
     private UUID id;
 
-    @Email
     private String email;
 
-    @Size(min = 1, max = 72)
+    @Max(200)
     private String passwordHash;
 
-    @Size(min = 1, max = 50)
+    @Max(50)
     private String phoneNumber;
 }
