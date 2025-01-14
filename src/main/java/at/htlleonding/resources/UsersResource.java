@@ -5,7 +5,7 @@ import at.htlleonding.dtos.SetNewPwDto;
 import at.htlleonding.dtos.SignInReq;
 import at.htlleonding.dtos.SignUpReq;
 import at.htlleonding.services.UserPasswordResettingService;
-import at.htlleonding.services.UserSigningService;
+import at.htlleonding.services.SignService;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
@@ -15,11 +15,11 @@ import lombok.extern.slf4j.Slf4j;
 @Path("/api/v1/users")
 public class UsersResource {
     private final UserPasswordResettingService resettingService;
-    private final UserSigningService signingService;
+    private final SignService signingService;
 
     public UsersResource(
             UserPasswordResettingService resettingService,
-            UserSigningService signingService
+            SignService signingService
     ) {
         this.resettingService = resettingService;
         this.signingService = signingService;

@@ -2,6 +2,7 @@ package at.htlleonding.services;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import jakarta.enterprise.context.ApplicationScoped;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
@@ -13,12 +14,14 @@ public class HashingService {
 
     private static final int COST = 13;
 
-    public String hashPassword(String password) {
+    public String hashPassword(@NonNull String password) {
         return BCrypt.withDefaults().hashToString(COST, (password + pepper).toCharArray());
     }
 
-    public boolean comparePasswords(String rawPassword, String hashedPassword) {
-        var hashed = this.hashPassword(rawPassword);
-        return hashed.equals(hashedPassword);
+    public boolean comparePasswords(@NonNull String rawPassword, @NonNull String hashedPassword) {
+        return BCrypt.verifyer().verify(
+                (rawPassword + pepper).toCharArray(),
+                hashedPassword
+        ).verified;
     }
 }
