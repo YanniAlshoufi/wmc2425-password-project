@@ -5,15 +5,19 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public record SignInReq(
+public record SetNewPasswordReq(
         @NotNull
-        @Email
         @NotEmpty
-        String username,
+        @Email
+        String email,
+
+        @NotNull
+        @NotEmpty
+        @Size(min = 4, max = 25) // This is just to stay flexible when the length is updated
+        String oneTimeCode,
 
         @NotNull
         @NotEmpty
         @Size(min = 6)
-        String password
-) {
-}
+        String newPassword
+) {}

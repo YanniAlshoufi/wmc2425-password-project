@@ -14,7 +14,7 @@ public class HashingService {
 
     private static final int COST = 13;
 
-    public String hashPassword(@NonNull String password) {
+    public String hash(@NonNull String password) {
         return BCrypt.withDefaults().hashToString(COST, (password + pepper).toCharArray());
     }
 
